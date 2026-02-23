@@ -1,0 +1,8 @@
+Car Brand Classification Dataset (ahmedelsany) - Preprocessing Stats
+Total processed images: 16467
+Unique brands: 33
+Target image size: 224x224
+Bad/corrupt/missing images removed: 0
+Existing base map used: /Users/pegahaghili/Desktop/Concordia/Winter 2026/COMP 472/Project/processed_data/stanford_cars/class_map.csv
+General map saved at: /Users/pegahaghili/Desktop/Concordia/Winter 2026/COMP 472/Project/processed_data/class_map_general.csv
+Dataset class map saved at: /Users/pegahaghili/Desktop/Concordia/Winter 2026/COMP 472/Project/processed_data/car_brand_classification/class_map.csv

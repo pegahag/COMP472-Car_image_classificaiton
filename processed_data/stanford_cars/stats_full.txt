@@ -1,0 +1,6 @@
+Stanford Cars (FULL dataset created from official train split) - Preprocessing Stats
+Total processed images: 8144
+Unique brands: 49
+Target image size: 224x224
+Bad/corrupt/missing images removed: 0
+Brand map saved at:processed_data/stanford_cars/brand_map.csv

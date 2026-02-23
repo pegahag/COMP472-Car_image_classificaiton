@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Data (do not upload datasets)
+raw_data/
+processed_data/**/images_processed/
+processed_data/samples/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS junk
+.DS_Store
