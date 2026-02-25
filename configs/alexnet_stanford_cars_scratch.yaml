@@ -1,0 +1,41 @@
+experiment_name: alexnet_stanford_cars_scratch
+env:
+  local_data_root: .
+  colab_data_root: /content/drive/MyDrive/COMP472-Car_image_classification
+  output_root: ./outputs
+  seed: 42
+model:
+  architecture: alexnet
+  pretrained: false
+  freeze_backbone: false
+  num_classes: 196
+dataset:
+  name: stanford_cars
+  image_size: 224
+  batch_size: 32
+  num_workers: 4
+augmentation:
+  horizontal_flip: true
+  rotation_degrees: 15
+  brightness: 0.2
+  contrast: 0.2
+  random_crop: true
+  random_crop_scale:
+  - 0.8
+  - 1.0
+training:
+  epochs: 50
+  optimizer: adamw
+  learning_rate: 0.001
+  weight_decay: 0.01
+  scheduler: cosine
+  early_stopping_patience: 7
+  unfreeze_after_epoch: 0
+  finetune_lr: 0.0001
+logging:
+  wandb_project: comp472_car_detection
+  wandb_entity: null
+  save_checkpoint_every: 1
+  log_gradcam: true
+  log_tsne: true
+  num_gradcam_samples: 8

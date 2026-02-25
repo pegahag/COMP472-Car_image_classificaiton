@@ -1,0 +1,56 @@
+# ─────────────────────────────────────────────
+#  Base configuration – override per experiment
+# ─────────────────────────────────────────────
+
+experiment_name: resnet50_dataset2_transfer
+
+# ── Environment ───────────────────────────────
+env:
+  # Repo root — manifest paths like "processed_data/five_car_models/..." resolve from here
+  local_data_root: .
+  colab_data_root: /content/drive/MyDrive/COMP472-Car_image_classification
+  output_root: ./outputs
+  seed: 42
+
+# ── Model ─────────────────────────────────────
+model:
+  architecture: resnet50        # alexnet | resnet50 | mobilenet_v2
+  pretrained: true              # true = transfer learning, false = from scratch
+  freeze_backbone: true         # only relevant when pretrained=true
+  num_classes: 33               # 5 | 33 | 196
+
+# ── Dataset ───────────────────────────────────
+dataset:
+  name: car_brand_classification  # car_brand_classification | five_car_models | stanford_cars
+  image_size: 224
+  batch_size: 32
+  num_workers: 4
+
+# ── Augmentation ──────────────────────────────
+augmentation:
+  horizontal_flip: true
+  rotation_degrees: 15
+  brightness: 0.2
+  contrast: 0.2
+  random_crop: true
+  random_crop_scale: [0.8, 1.0]
+
+# ── Training ──────────────────────────────────
+training:
+  epochs: 50
+  optimizer: adamw
+  learning_rate: 0.001
+  weight_decay: 0.01
+  scheduler: cosine             # cosine | step | none
+  early_stopping_patience: 7
+  unfreeze_after_epoch: 5       # unfreeze backbone after N epochs (0 = never unfreeze)
+  finetune_lr: 0.0001           # lr used after unfreezing
+
+# ── Logging ───────────────────────────────────
+logging:
+  wandb_project: comp472_car_detection
+  wandb_entity: null            # your wandb username or team name (null = default)
+  save_checkpoint_every: 1      # epochs between checkpoint saves (1 = every epoch)
+  log_gradcam: true             # log Grad-CAM images to wandb
+  log_tsne: true                # log t-SNE plot to wandb
+  num_gradcam_samples: 8        # images per Grad-CAM log

@@ -1,0 +1,30 @@
+# Large/generated experiment artifacts
+outputs/
+wandb/
+processed_data/
+
+# Python cache/build
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Notebook/runtime noise
+.ipynb_checkpoints/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Logs
+*.log
