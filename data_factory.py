@@ -23,8 +23,10 @@ Expected folder structure per dataset:
 
 import os
 import csv
+import random
 from pathlib import Path
 from PIL import Image
+from collections import defaultdict
 
 import torch
 from torch.utils.data import Dataset, DataLoader
@@ -116,6 +118,8 @@ class ManifestDataset(Dataset):
         class_to_idx: dict,
         classes: list,
         transform=None,
+        max_samples_per_class: int = None,
+        seed: int = 42,
     ):
         self.repo_root    = repo_root
         self.class_to_idx = class_to_idx
@@ -130,6 +134,20 @@ class ManifestDataset(Dataset):
                 brand_id  = int(row["brand_id"])
                 class_idx = class_to_idx[brand_id]
                 self.samples.append((img_path, class_idx))
+
+        # Optional: cap training samples per class for ablation studies.
+        # Val/test splits should always be called with max_samples_per_class=None.
+        if max_samples_per_class is not None:
+            per_class = defaultdict(list)
+            for item in self.samples:
+                per_class[item[1]].append(item)
+            rng = random.Random(seed)
+            capped = []
+            for class_idx in sorted(per_class):
+                group = per_class[class_idx]
+                rng.shuffle(group)
+                capped.extend(group[:max_samples_per_class])
+            self.samples = capped
 
     def __len__(self) -> int:
         return len(self.samples)
@@ -183,10 +201,12 @@ def build_dataloaders(cfg: dict) -> dict:
     aug_cfg     = cfg["augmentation"]
     env_cfg     = cfg["env"]
 
-    name        = ds_cfg["name"]
-    image_size  = ds_cfg["image_size"]
-    batch_size  = ds_cfg["batch_size"]
-    num_workers = ds_cfg.get("num_workers", 4)
+    name                 = ds_cfg["name"]
+    image_size           = ds_cfg["image_size"]
+    batch_size           = ds_cfg["batch_size"]
+    num_workers          = ds_cfg.get("num_workers", 4)
+    max_samples_per_class = ds_cfg.get("max_samples_per_class", None)
+    seed                 = env_cfg.get("seed", 42)
 
     repo_root    = resolve_repo_root(env_cfg)
     manifest_dir = repo_root / "processed_data" / name
@@ -209,11 +229,13 @@ def build_dataloaders(cfg: dict) -> dict:
     for split, manifest_path in split_manifests.items():
         transform = build_transforms(aug_cfg, image_size, split)
         dataset   = ManifestDataset(
-            manifest_path = manifest_path,
-            repo_root     = repo_root,
-            class_to_idx  = class_to_idx,
-            classes       = classes,
-            transform     = transform,
+            manifest_path         = manifest_path,
+            repo_root             = repo_root,
+            class_to_idx          = class_to_idx,
+            classes               = classes,
+            transform             = transform,
+            max_samples_per_class = max_samples_per_class if split == "train" else None,
+            seed                  = seed,
         )
         loaders[split] = DataLoader(
             dataset,

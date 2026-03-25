@@ -1,0 +1,41 @@
+experiment_name: ablation_lr_1e-4
+env:
+  local_data_root: .
+  colab_data_root: /content/drive/MyDrive/COMP472-Car_image_classification
+  output_root: ./outputs
+  seed: 42
+model:
+  architecture: resnet50
+  pretrained: true
+  freeze_backbone: true
+  num_classes: 33
+dataset:
+  name: car_brand_classification
+  image_size: 224
+  batch_size: 32
+  num_workers: 4
+augmentation:
+  horizontal_flip: true
+  rotation_degrees: 15
+  brightness: 0.2
+  contrast: 0.2
+  random_crop: true
+  random_crop_scale:
+  - 0.8
+  - 1.0
+training:
+  epochs: 15
+  optimizer: adamw
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  scheduler: cosine
+  early_stopping_patience: 5
+  unfreeze_after_epoch: 5
+  finetune_lr: 1.0e-05
+logging:
+  wandb_project: comp472_ablation
+  wandb_entity: null
+  save_checkpoint_every: 5
+  log_gradcam: false
+  log_tsne: false
+  num_gradcam_samples: 0
