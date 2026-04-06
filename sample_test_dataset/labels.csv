@@ -1,0 +1,101 @@
+dataset,path,brand,brand_id
+five_car_models,five_car_models\audi\audi a6-3.jpg,audi,3
+five_car_models,five_car_models\audi\audi q8-13.jpg,audi,3
+five_car_models,five_car_models\audi\audi q8-3.jpg,audi,3
+five_car_models,five_car_models\audi\audi q2-19.jpg,audi,3
+five_car_models,five_car_models\bentley\bentley bentayga-0.jpg,bentley,4
+five_car_models,five_car_models\bentley\bentley flying-spur-3.jpg,bentley,4
+five_car_models,five_car_models\bentley\bentley flying-spur-14.jpg,bentley,4
+five_car_models,five_car_models\bentley\bentley mulsanne-2.jpg,bentley,4
+five_car_models,five_car_models\bmw\bmw x7-11.jpg,bmw,5
+five_car_models,five_car_models\bmw\bmw i8-roadster-14.jpg,bmw,5
+five_car_models,five_car_models\bmw\bmw x3-14.jpg,bmw,5
+five_car_models,five_car_models\bmw\bmw x1-4.jpg,bmw,5
+five_car_models,five_car_models\mercedes_benz\mercedes-benz g-class-3.jpg,mercedes-benz,33
+five_car_models,five_car_models\mercedes_benz\mercedes-benz s-class-7.jpg,mercedes-benz,33
+five_car_models,five_car_models\mercedes_benz\mercedes-benz glc-5.jpg,mercedes-benz,33
+five_car_models,five_car_models\toyota\toyota gr-yaris-1.jpg,toyota,46
+five_car_models,five_car_models\toyota\toyota innova-4.jpg,toyota,46
+five_car_models,five_car_models\toyota\toyota hiace-9.jpg,toyota,46
+car_brand_classification,car_brand_classification\acura\Acura_RLX_2014_48_18_310_35_6_74_57_196_20_FWD_5_4_4dr_pyj.jpg,acura,0
+car_brand_classification,car_brand_classification\aston_martin\Aston Martin_Vantage_2016_135_19_420_47_8_73_50_172_13_RWD_2_2_Convertible_HiK.jpg,aston martin,2
+car_brand_classification,car_brand_classification\audi\Audi_TT_2012_38_18_210_20_4_72_53_164_23_AWD_4_2_2dr_LnO.jpg,audi,3
+car_brand_classification,car_brand_classification\bentley\Bentley_Continental GT_2011_205_19_550_60_12_75_55_189_11_AWD_4_2_Convertible_cSl.jpg,bentley,4
+car_brand_classification,car_brand_classification\bmw\BMW_7-Series_2015_82_18_250_30_6_74_58_205_23_AWD_5_4_4dr_EUu.jpg,bmw,5
+car_brand_classification,car_brand_classification\buick\Buick_Lacrosse_2010_26_17_180_24_4_73_59_196_19_FWD_5_4_4dr_FeP.jpg,buick,7
+car_brand_classification,car_brand_classification\cadillac\Cadillac_ATS_2016_44_18_270_20_4_72_55_183_nan_AWD_4_2_2dr_SDo.jpg,cadillac,8
+car_brand_classification,car_brand_classification\chevrolet\Chevrolet_Impala_2012_25_16_300_36_6_72_58_200_18_FWD_5_4_4dr_gwu.jpg,chevrolet,9
+car_brand_classification,car_brand_classification\chrysler\Chrysler_300_2011_40_19_360_57_8_75_59_198_15_AWD_5_4_4dr_rNn.jpg,chrysler,10
+car_brand_classification,car_brand_classification\dodge\Dodge_Charger_2015_33_20_370_57_8_75_58_198_16_RWD_5_4_4dr_Sfi.jpg,dodge,12
+car_brand_classification,car_brand_classification\fiat\FIAT_500_2014_18_15_100_14_4_64_59_139_31_FWD_4_2_2dr_yWo.jpg,fiat,15
+car_brand_classification,car_brand_classification\ford\Ford_Ranger_2004_18_15_140_30_6_69_64_nan_18_RWD_5_2_Pickup_qba.jpg,ford,17
+car_brand_classification,car_brand_classification\gmc\GMC_Acadia_2014_48_20_280_36_6_78_70_200_16_AWD_7_4_SUV_UEb.jpg,gmc,19
+car_brand_classification,car_brand_classification\honda\Honda_HR-V_2017_22_17_140_18_4_69_63_169_28_FWD_5_4_SUV_UqM.jpg,honda,20
+car_brand_classification,car_brand_classification\hyundai\Hyundai_Sonata_2020_33_18_180_16_4_73_56_192_27_FWD_5_4_4dr_TTs.jpg,hyundai,22
+car_brand_classification,car_brand_classification\infiniti\INFINITI_Q60_2020_47_19_300_30_6_72_54_184_19_AWD_4_2_2dr_Aqr.jpg,infiniti,23
+car_brand_classification,car_brand_classification\jaguar\Jaguar_XE_2017_38_17_180_20_4_72_55_183_30_AWD_5_4_4dr_YtG.jpg,jaguar,25
+car_brand_classification,car_brand_classification\jeep\Jeep_Wrangler_2017_30_17_280_36_6_73_72_164_17_4WD_4_2_SUV_OkG.jpg,jeep,26
+car_brand_classification,car_brand_classification\kia\Kia_Optima_2011_24_17_270_20_4_72_57_190_22_FWD_5_4_4dr_zZw.jpg,kia,49
+car_brand_classification,car_brand_classification\land_rover\Land Rover_Range Rover Evoque_2014_57_20_240_20_4_74_63_171_21_4WD_5_2_SUV_hdP.jpg,land rover,28
+car_brand_classification,car_brand_classification\lexus\Lexus_RX_2016_43_18_290_35_6_74_67_192_19_AWD_5_4_SUV_Vyo.jpg,lexus,50
+car_brand_classification,car_brand_classification\lincoln\Lincoln_MKC_2019_49_19_240_20_4_73_65_179_19_AWD_5_4_SUV_zMR.jpg,lincoln,29
+car_brand_classification,car_brand_classification\mazda\Mazda_MX-5 Miata_2011_27_17_150_20_4_67_49_157_21_RWD_2_2_Convertible_NwQ.jpg,mazda,31
+car_brand_classification,car_brand_classification\mercedes_benz\Mercedes-Benz_C Class_2019_63_18_380_30_6_71_55_184_18_AWD_4_2_Convertible_pyV.jpg,mercedes-benz,33
+car_brand_classification,car_brand_classification\mini\MINI_Clubman_2013_21_15_120_16_4_66_56_155_27_FWD_4_2_2dr_YxY.jpg,mini,34
+car_brand_classification,car_brand_classification\mitsubishi\Mitsubishi_Mirage_2014_13_14_740_12_3_65_59_148_37_FWD_5_4_4dr_Jop.jpg,mitsubishi,35
+car_brand_classification,car_brand_classification\nissan\Nissan_370Z_2017_31_18_330_37_6_72_51_167_nan_RWD_2_2_2dr_ayz.jpg,nissan,36
+car_brand_classification,car_brand_classification\porsche\Porsche_911_2013_93_19_350_34_6_71_51_176_19_RWD_4_2_Convertible_Qbk.jpg,porsche,38
+car_brand_classification,car_brand_classification\ram\Ram_1500_2019_38_18_300_36_6_82_77_232_20_RWD_6_4_Pickup_Yuv.jpg,ram,39
+car_brand_classification,car_brand_classification\subaru\Subaru_WRX_2011_25_17_260_25_4_70_58_180_19_AWD_5_4_4dr_soS.jpg,subaru,51
+car_brand_classification,car_brand_classification\toyota\Toyota_Tacoma_2013_21_15_150_27_4_72_66_nan_19_RWD_4_2_Pickup_apY.jpg,toyota,46
+car_brand_classification,car_brand_classification\volkswagen\Volkswagen_Golf_2019_22_15_140_14_4_70_58_167_29_FWD_5_4_4dr_WLd.jpg,volkswagen,47
+car_brand_classification,car_brand_classification\volvo\Volvo_XC60_2015_37_18_250_25_5_74_67_182_18_AWD_5_4_SUV_yWj.jpg,volvo,48
+stanford_cars,stanford_cars\acura\00742.jpg,acura,0
+stanford_cars,stanford_cars\am general\06052.jpg,am general,1
+stanford_cars,stanford_cars\aston martin\05306.jpg,aston martin,2
+stanford_cars,stanford_cars\audi\05263.jpg,audi,3
+stanford_cars,stanford_cars\bentley\02967.jpg,bentley,4
+stanford_cars,stanford_cars\bmw\00716.jpg,bmw,5
+stanford_cars,stanford_cars\bugatti\07296.jpg,bugatti,6
+stanford_cars,stanford_cars\buick\00417.jpg,buick,7
+stanford_cars,stanford_cars\cadillac\06556.jpg,cadillac,8
+stanford_cars,stanford_cars\chevrolet\06537.jpg,chevrolet,9
+stanford_cars,stanford_cars\chrysler\02785.jpg,chrysler,10
+stanford_cars,stanford_cars\daewoo\03234.jpg,daewoo,11
+stanford_cars,stanford_cars\dodge\00875.jpg,dodge,12
+stanford_cars,stanford_cars\eagle\02831.jpg,eagle,13
+stanford_cars,stanford_cars\ferrari\05298.jpg,ferrari,14
+stanford_cars,stanford_cars\fiat\00511.jpg,fiat,15
+stanford_cars,stanford_cars\fisker\08076.jpg,fisker,16
+stanford_cars,stanford_cars\ford\01075.jpg,ford,17
+stanford_cars,stanford_cars\geo\05254.jpg,geo,18
+stanford_cars,stanford_cars\gmc\07300.jpg,gmc,19
+stanford_cars,stanford_cars\honda\06090.jpg,honda,20
+stanford_cars,stanford_cars\hummer\08134.jpg,hummer,21
+stanford_cars,stanford_cars\hyundai\00744.jpg,hyundai,22
+stanford_cars,stanford_cars\infiniti\00040.jpg,infiniti,23
+stanford_cars,stanford_cars\isuzu\00443.jpg,isuzu,24
+stanford_cars,stanford_cars\jaguar\00123.jpg,jaguar,25
+stanford_cars,stanford_cars\jeep\03921.jpg,jeep,26
+stanford_cars,stanford_cars\lamborghini\00959.jpg,lamborghini,27
+stanford_cars,stanford_cars\land rover\07810.jpg,land rover,28
+stanford_cars,stanford_cars\lincoln\02313.jpg,lincoln,29
+stanford_cars,stanford_cars\maybach\06854.jpg,maybach,30
+stanford_cars,stanford_cars\mazda\01924.jpg,mazda,31
+stanford_cars,stanford_cars\mclaren\03297.jpg,mclaren,32
+stanford_cars,stanford_cars\mercedes-benz\04529.jpg,mercedes-benz,33
+stanford_cars,stanford_cars\mini\06198.jpg,mini,34
+stanford_cars,stanford_cars\mitsubishi\01109.jpg,mitsubishi,35
+stanford_cars,stanford_cars\nissan\05300.jpg,nissan,36
+stanford_cars,stanford_cars\plymouth\03711.jpg,plymouth,37
+stanford_cars,stanford_cars\porsche\04173.jpg,porsche,38
+stanford_cars,stanford_cars\ram\03853.jpg,ram,39
+stanford_cars,stanford_cars\rolls-royce\06622.jpg,rolls-royce,40
+stanford_cars,stanford_cars\scion\04498.jpg,scion,41
+stanford_cars,stanford_cars\smart\02407.jpg,smart,42
+stanford_cars,stanford_cars\spyker\05053.jpg,spyker,43
+stanford_cars,stanford_cars\suzuki\02255.jpg,suzuki,44
+stanford_cars,stanford_cars\tesla\06689.jpg,tesla,45
+stanford_cars,stanford_cars\toyota\06866.jpg,toyota,46
+stanford_cars,stanford_cars\volkswagen\03748.jpg,volkswagen,47
+stanford_cars,stanford_cars\volvo\02279.jpg,volvo,48

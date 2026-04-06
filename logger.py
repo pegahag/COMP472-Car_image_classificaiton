@@ -5,9 +5,11 @@ image logging, and graceful teardown.
 All wandb calls are centralised here so the rest of the codebase stays clean.
 """
 
+import io
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+from PIL import Image as PILImage
 
 try:
     import wandb
@@ -71,13 +73,19 @@ class WandbLogger:
         """Log a matplotlib Figure as a wandb Image."""
         if not self.enabled:
             return
-        payload = {key: wandb.Image(fig)}
+        # Convert to PIL first to avoid wandb's Windows temp-file path bug.
+        buf = io.BytesIO()
+        fig.savefig(buf, format="png", bbox_inches="tight")
+        buf.seek(0)
+        pil_img = PILImage.open(buf).copy()
+        buf.close()
+        plt.close(fig)
+        payload = {key: wandb.Image(pil_img)}
         if epoch is not None:
             payload["epoch"] = epoch
             wandb.log(payload, step=epoch)
         else:
             wandb.log(payload)
-        plt.close(fig)
 
     def log_confusion_matrix(self, fig: plt.Figure, split: str, epoch: int):
         self.log_figure(f"{split}/confusion_matrix", fig, epoch)

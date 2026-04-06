@@ -210,11 +210,18 @@ def plot_tsne(
     else:
         tsne_kwargs["n_iter"] = 1000
 
-    tsne   = TSNE(**tsne_kwargs)
-    coords = tsne.fit_transform(embeddings)
+    # Guard: if embeddings are degenerate (e.g. model stuck at random init),
+    # t-SNE will produce NaN coords — replace with zeros so plotting doesn't crash.
+    if np.any(np.isnan(embeddings)) or np.allclose(embeddings, embeddings[0]):
+        coords = np.zeros((len(embeddings), 2))
+    else:
+        tsne   = TSNE(**tsne_kwargs)
+        coords = tsne.fit_transform(embeddings)
+        if np.any(np.isnan(coords)):
+            coords = np.zeros_like(coords)
 
     n_classes = len(np.unique(labels))
-    cmap      = plt.cm.get_cmap("tab20", n_classes)
+    cmap      = matplotlib.colormaps.get_cmap("tab20")
 
     fig, ax = plt.subplots(figsize=(10, 8))
     for cls_idx in range(n_classes):

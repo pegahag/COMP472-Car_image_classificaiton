@@ -35,7 +35,8 @@ training:
 logging:
   wandb_project: comp472_car_detection
   wandb_entity: null
-  save_checkpoint_every: 1
+  save_checkpoint_every: 50
   log_gradcam: true
   log_tsne: true
   num_gradcam_samples: 8
+

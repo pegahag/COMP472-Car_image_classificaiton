@@ -1,7 +1,11 @@
 """
 run_all_experiments.py
-Runs all 18 experiments sequentially.
+Runs all 18 experiments sequentially, each in its own subprocess.
 Skips any experiment that already has a best_model.pt checkpoint.
+
+Running each experiment as a subprocess gives wandb a fresh service
+connection per run, avoiding the Windows named-pipe crash ([WinError 64])
+that kills the entire session when running multiple runs in-process.
 
 Usage:
     python run_all_experiments.py
@@ -9,12 +13,18 @@ Usage:
     python run_all_experiments.py --filter resnet50  # only run configs matching a string
 """
 
-import os
+import sys
+import json
 import argparse
+import subprocess
 from pathlib import Path
+
 import yaml
 
-from train import train, load_config
+
+def load_config(path: str) -> dict:
+    with open(path) as f:
+        return yaml.safe_load(f)
 
 
 def main():
@@ -27,7 +37,7 @@ def main():
     config_dir = Path("configs")
     configs    = sorted(config_dir.glob("*.yaml"))
 
-    # Exclude the base template
+    # Exclude the base template and ablation configs
     configs = [c for c in configs if c.name != "base_config.yaml"]
 
     if args.filter:
@@ -38,29 +48,51 @@ def main():
     results = {}
 
     for config_path in configs:
-        cfg = load_config(str(config_path))
+        cfg      = load_config(str(config_path))
         exp_name = cfg["experiment_name"]
 
         # Skip if already completed
-        best_model_path = Path(cfg["env"]["output_root"]) / exp_name / "best_model.pt"
+        output_dir     = Path(cfg["env"]["output_root"]) / exp_name
+        best_model_path = output_dir / "best_model.pt"
         if best_model_path.exists():
             print(f"  [skip] {exp_name} — checkpoint already exists.")
+            # Load metrics if available so they appear in the summary
+            metrics_path = output_dir / "test_metrics.json"
+            if metrics_path.exists():
+                with open(metrics_path) as f:
+                    m = json.load(f)
+                results[exp_name] = {
+                    "status":        "complete",
+                    "test_accuracy": m["accuracy"],
+                    "test_f1":       m["macro_f1"],
+                }
             continue
 
         print(f"\n{'='*60}")
         print(f"  Starting: {exp_name}")
         print(f"{'='*60}")
 
-        try:
-            metrics = train(cfg, use_wandb=not args.no_wandb)
+        # Run in a fresh subprocess so wandb gets a clean service connection
+        cmd = [sys.executable, "train.py", "--config", str(config_path)]
+        if args.no_wandb:
+            cmd.append("--no-wandb")
+
+        result = subprocess.run(cmd)
+
+        metrics_path = output_dir / "test_metrics.json"
+        if result.returncode == 0 and metrics_path.exists():
+            with open(metrics_path) as f:
+                m = json.load(f)
             results[exp_name] = {
                 "status":        "complete",
-                "test_accuracy": metrics["accuracy"],
-                "test_f1":       metrics["macro_f1"],
+                "test_accuracy": m["accuracy"],
+                "test_f1":       m["macro_f1"],
             }
-        except Exception as e:
-            print(f"\n  [ERROR] {exp_name} failed: {e}")
-            results[exp_name] = {"status": "failed", "error": str(e)}
+        else:
+            results[exp_name] = {
+                "status": "failed",
+                "error":  f"exit code {result.returncode}",
+            }
 
     # ── Summary table ─────────────────────────────────────────────────────────
     print(f"\n\n{'='*60}")

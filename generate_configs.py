@@ -69,9 +69,9 @@ SHARED = {
         "seed": 42,
     },
     "logging": {
-        "wandb_project": "comp472_car_detection",
+        "wandb_project": "comp472_car_detection_final",
         "wandb_entity": None,
-        "save_checkpoint_every": 1,
+        "save_checkpoint_every": 50,
         "log_gradcam": True,
         "log_tsne": True,
         "num_gradcam_samples": 8,

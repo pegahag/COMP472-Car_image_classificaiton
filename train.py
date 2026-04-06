@@ -352,6 +352,15 @@ def train(cfg: dict, use_wandb: bool = True):
         f.write(report)
     print(f"\nClassification report saved to {report_path}")
 
+    # ── Save test metrics as JSON (read by run_all_experiments.py) ────────────
+    import json
+    metrics_path = output_dir / "test_metrics.json"
+    with open(metrics_path, "w") as f:
+        json.dump({
+            "accuracy": test_metrics["accuracy"],
+            "macro_f1": test_metrics["macro_f1"],
+        }, f)
+
     # ── Upload best model artifact ────────────────────────────────────────────
     logger.save_model_artifact(
         str(output_dir / "best_model.pt"),

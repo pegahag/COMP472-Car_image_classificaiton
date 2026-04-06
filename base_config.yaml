@@ -48,7 +48,7 @@ training:
 
 # ── Logging ───────────────────────────────────
 logging:
-  wandb_project: comp472_car_detection
+  wandb_project: comp472_car_detection_final
   wandb_entity: null            # your wandb username or team name (null = default)
   save_checkpoint_every: 1      # epochs between checkpoint saves (1 = every epoch)
   log_gradcam: true             # log Grad-CAM images to wandb
