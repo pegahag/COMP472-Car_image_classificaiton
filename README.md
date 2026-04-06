@@ -386,8 +386,6 @@ Our team worked collaboratively on Google Colab throughout the development of th
 
 ## Contributors
 
-## Contributors
-
 | Name | GitHub | Contributions |
 |---|---|---|
 | Pegah Aghili | [pegahag](https://github.com/pegahag) | Preprocessed and prepared the three datasets used in the project; contributed to the writing and editing of the final report; assisted with the dataset description and related documentation. |
