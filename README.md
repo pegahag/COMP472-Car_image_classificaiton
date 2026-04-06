@@ -388,10 +388,10 @@ Our team worked collaboratively on Google Colab throughout the development of th
 
 | Name | GitHub | Contributions |
 |---|---|---|
-| Pegah Aghili | TBD | Preprocessed and prepared the three datasets used in the project; contributed to the writing and editing of the final report; assisted with the dataset description and related documentation. |
-| Arash Shafiee | TBD | Contributed to the transfer learning component (ResNet + MobileNet); assisted in the preparation of the final report; worked on the dataset description section. |
-| Joyal Biju Kulangara | TBD | Led the evaluation and metrics analysis of the datasets and models; calculated and interpreted accuracy, precision, recall, F1-score, and confusion matrices; contributed to the analysis-related coding tasks; designed and prepared the presentation. |
-| Youssef Ajam | TBD | Worked on the ablation study; developed training scripts and configuration files; contributed to the literature review and evaluation metrics; helped write the results section; assisted with the overall preparation and formatting of the final report. |
-| Andrew Kamami | TBD | Developed the training script and baseline model implementation using AlexNet; contributed to the implementation and optimization of the CNN models; helped write the methodology section of the report; assisted with the experimental setup write-up. |
+| Pegah Aghili | pegahag | Preprocessed and prepared the three datasets used in the project; contributed to the writing and editing of the final report; assisted with the dataset description and related documentation. |
+| Arash Shafiee | Arashcito | Contributed to the transfer learning component (ResNet + MobileNet); assisted in the preparation of the final report; worked on the dataset description section. |
+| Joyal Biju Kulangara | Joyal99 | Led the evaluation and metrics analysis of the datasets and models; calculated and interpreted accuracy, precision, recall, F1-score, and confusion matrices; contributed to the analysis-related coding tasks; designed and prepared the presentation. |
+| Youssef Ajam | YoussefA0807 | Worked on the ablation study; developed training scripts and configuration files; contributed to the literature review and evaluation metrics; helped write the results section; assisted with the overall preparation and formatting of the final report. |
+| Andrew Kamami | AndrewKaranu | Developed the training script and baseline model implementation using AlexNet; contributed to the implementation and optimization of the CNN models; helped write the methodology section of the report; assisted with the experimental setup write-up. |
 | Dr. Mahdi S. Hosseini (Supervisor) | [AtlasAnalyticsLab](https://github.com/AtlasAnalyticsLab) | Project supervision and academic guidance. |
 | Rose Rostami (Lead TA) | TBD | Teaching assistant support and project guidance. |
